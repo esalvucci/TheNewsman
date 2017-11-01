@@ -1,9 +1,10 @@
 package it.thenewsman.model.user;
 
-import com.example.enrico.fakenews.model.challenge.Challenge;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
+import it.thenewsman.model.challenge.Challenge;
 
 /**
  * Concrete implementation of User concept

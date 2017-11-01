@@ -1,8 +1,8 @@
 package it.thenewsman.model.user;
 
-import com.example.enrico.fakenews.model.challenge.Challenge;
-
 import java.util.Date;
+
+import it.thenewsman.model.challenge.Challenge;
 
 /**
  * Interface for modelling the concept of the User of the app.
@@ -17,7 +17,7 @@ public interface User {
 
     /**
      * @return Retrieve the avatar of the user as a {@link String}.
-     * The avatar is intended to be an image ({@link com.example.enrico.fakenews.R.mipmap}) that the user choose representing him/her within the app
+     * The avatar is intended to be an image ({@link it.thenewsman.R.mipmap}) that the user choose representing him/her within the app
      * and during the experience.
      */
     String getAvatar();

@@ -1,11 +1,10 @@
 package it.thenewsman.model.challenge;
 
-import com.example.enrico.fakenews.R;
+import it.thenewsman.R;
 
 /**
  *
  */
-
 public enum ChallengeType {
     TITLE("", R.mipmap.ic_launcher),
     PHOTO("foto", R.mipmap.ic_launcher),

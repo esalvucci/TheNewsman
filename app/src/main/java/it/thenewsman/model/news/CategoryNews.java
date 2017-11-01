@@ -5,4 +5,5 @@ package it.thenewsman.model.news;
  */
 
 enum CategoryNews {
+
 }

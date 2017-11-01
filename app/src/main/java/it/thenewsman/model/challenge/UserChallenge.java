@@ -1,6 +1,6 @@
 package it.thenewsman.model.challenge;
 
-import com.example.enrico.fakenews.model.user.User;
+import it.thenewsman.model.user.User;
 
 /**
  * Created by enrico on 10/26/17.
