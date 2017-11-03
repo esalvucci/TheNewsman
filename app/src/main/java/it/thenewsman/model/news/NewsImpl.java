@@ -3,6 +3,8 @@ package it.thenewsman.model.news;
 import java.util.Collection;
 import java.util.Set;
 
+import it.thenewsman.model.Level;
+
 /**
  * Created by enrico on 10/31/17.
  */
@@ -13,13 +15,13 @@ public class NewsImpl implements News {
     private String text;
     private String url;
     private String image;
-    private int difficulty;
+    private Level difficulty;
     private Set<CategoryNews> categories;
     private Set<String> adjectives;
     private Set<String> emotions;
     private boolean isTrue;
 
-    public NewsImpl(String title, String text, String url, String image, int difficulty,
+    public NewsImpl(String title, String text, String url, String image, Level difficulty,
                     Set<CategoryNews> categories, Set<String> adjectives, Set<String> emotions,
                     boolean isTrue) {
         this.title = title;
@@ -54,7 +56,7 @@ public class NewsImpl implements News {
     }
 
     @Override
-    public int getDifficulty() {
+    public Level getDifficulty() {
         return this.difficulty;
     }
 

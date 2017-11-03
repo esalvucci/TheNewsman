@@ -1,17 +1,16 @@
 package it.thenewsman.model.user;
 
-import java.util.Date;
-
+import it.thenewsman.model.Level;
 import it.thenewsman.model.challenge.Challenge;
 
-/**
- * Interface for modelling the concept of the User of the app.
+/*
+ * Interface that models the concept of the User of the app.
  */
 
 public interface User {
 
     /**
-     * @return Retrieve the name of the user as a {@link String}
+     * @return the name of the user as a {@link String}.
      */
     String getName();
 
@@ -28,9 +27,14 @@ public interface User {
     int getPoints();
 
     /**
-     * @return Retreive the User's age calculated by his/her birth date.
+     * @return the User's age calculated by his/her birth date.
      */
     int getAge();
+
+    /**
+     * @return the level which the user has gained.
+     */
+    Level getLevel();
 
     /**
      * @return If the User has obtained his Acknowledgment, the most important reward.
@@ -38,27 +42,35 @@ public interface User {
     boolean hasAcknowledgment();
 
     /**
-     * Sets the name of the User
-     * @param name
+     * Sets the name of the User.
+     * @param name of the User.
      */
     void setName(String name);
 
     /**
-     * Adds the point retreived by a user, for example, after a Question into a Challenge.
-     * @param points
+     * Adds the point retreived by a User, for example, after a Question into a Challenge.
+     * @param points retreived by a User.
      */
     void addPoints(int points);
 
     /**
-     * Adds a challenge completed by the User
-     * @param challenge completed by the user
+     * Adds a challenge completed by the User.
+     * @param challenge completed by the User.
      */
-    void addChallenge(Challenge challenge);
+    void addChallenge(Challenge challenge, int points);
 
     /**
      * Sets if the User has obtained his Acknowledgment, the most important reward during the
-     * experience
-     * @param acknowledgment 
+     * experience.
+     * @param acknowledgment, boolean value that represents whether the acknowledgment
+     *                       has been obtained or not.
      */
     void setAcknowledgment(boolean acknowledgment);
+
+    /**
+     * Sets the level which the user has gained.
+     * @param level, which could be REPORTER, JOURNALIST OR EDITORIALIST.
+     * @see Level
+     */
+    void setLevel(Level level);
 }

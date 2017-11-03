@@ -9,12 +9,12 @@ import it.thenewsman.model.news.News;
 /**
  * Created by enrico on 10/26/17.
  */
-public class ChallengeImpl implements Challenge {
+public class ChallengeImpl {
 
-    private ChallengeType type;
+    private Challenge type;
     private List<News> news;
 
-    public ChallengeImpl(ChallengeType type) {
+    public ChallengeImpl(Challenge type) {
         this.type = type;
         this.news = this.setNews();
     }
@@ -26,12 +26,10 @@ public class ChallengeImpl implements Challenge {
         return list;
     }
 
-    @Override
-    public ChallengeType getType() {
+    public Challenge getType() {
         return this.type;
     }
 
-    @Override
     public Collection<News> getNews() {
         return this.news;
     }

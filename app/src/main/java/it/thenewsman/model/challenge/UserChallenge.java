@@ -10,16 +10,15 @@ public class UserChallenge {
 
     private User user;
     private Challenge challenge;
-    private boolean isCompleted;
+    private int points;
 
     public UserChallenge(User user, Challenge challenge) {
         this.user = user;
         this.challenge = challenge;
     }
 
-    public UserChallenge setCompleted(boolean completed) {
-        this.isCompleted = completed;
-        return this;
+    public void addPoints(int points) {
+        this.points = this.points + points;
     }
 
     public User getUser() {
@@ -30,8 +29,8 @@ public class UserChallenge {
         return challenge;
     }
 
-    public boolean isCompleted() {
-        return this.isCompleted;
+    public int getPoints() {
+        return this.points;
     }
 
     @Override
@@ -56,7 +55,7 @@ public class UserChallenge {
         return "UserChallenge{" +
                 "user=" + user +
                 ", challenge=" + challenge +
-                ", isCompleted=" + isCompleted +
+                ", points=" + points +
                 '}';
     }
 }

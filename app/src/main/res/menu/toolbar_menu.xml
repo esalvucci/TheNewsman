@@ -6,13 +6,13 @@
         android:title="@string/licence"
         android:icon="@drawable/ic_licence_24dp"
         app:actionLayout="@layout/custom_menu_layout"
-        app:showAsAction = "always"
+        app:showAsAction = "ifRoom"
         />
     <item
         android:id="@+id/level"
         android:title="@string/licence"
         android:icon="@drawable/ic_licence_24dp"
         app:actionLayout="@layout/custom_menu_layout"
-        app:showAsAction = "always"
+        app:showAsAction = "ifRoom"
         />
 </menu>

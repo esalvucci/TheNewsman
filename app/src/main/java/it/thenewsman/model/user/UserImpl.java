@@ -1,9 +1,12 @@
 package it.thenewsman.model.user;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
+import it.thenewsman.model.Level;
 import it.thenewsman.model.challenge.Challenge;
 
 /**
@@ -16,8 +19,8 @@ public class UserImpl implements User {
     private int points = 0;
     private Date birthday;
     private boolean acknowledgment = false;
-    private int level;
-    private Set<Challenge> challenges = new HashSet<>();
+    private Level level;
+    private Map<Challenge, Integer> challenges = new HashMap<>();
 
     /**
      *
@@ -61,8 +64,17 @@ public class UserImpl implements User {
      * {@inheritDoc}
      */
     @Override
-    public void addChallenge(Challenge challenge) {
-        this.challenges.add(challenge);
+    public void addChallenge(Challenge challenge, int points) {
+        this.challenges.put(challenge, points);
+        this.points = this.points + points;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setLevel(Level level) {
+        this.level = level;
     }
 
     /**
@@ -101,6 +113,14 @@ public class UserImpl implements User {
      * {@inheritDoc}
      */
     @Override
+    public Level getLevel() {
+        return this.level;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public boolean hasAcknowledgment() {
         return this.acknowledgment;
     }
@@ -111,6 +131,7 @@ public class UserImpl implements User {
                 ", name='" + name + '\'' +
                 ", avatar=" + avatar +
                 ", points=" + points +
+                ", challenges=" + challenges +
                 ", acknowledgment=" + acknowledgment +
                 '}';
     }
