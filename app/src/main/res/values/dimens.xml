@@ -9,6 +9,9 @@
     <dimen name="margin_small">8dp</dimen>
     <dimen name="margin_normal">16dp</dimen>
 
+    <dimen name="button_width">64dp</dimen>
+    <dimen name="button_height">36dp</dimen>
+
     <!-- Card dimensions -->
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="item_offset">10dp</dimen>

@@ -10,17 +10,17 @@ import it.thenewsman.model.news.News;
  *
  */
 public enum Challenge {
-    TITLE("", R.drawable.ic_badge_48dp),
-    PHOTO("foto", R.drawable.ic_licence_24dp),
-    URL("url", R.drawable.ic_info_24dp),
-    SOURCE(" ", R.drawable.ic_launcher_background),
-    BONUS("Bonus", R.drawable.ic_launcher_foreground);
+    TITLE("Titolo", R.mipmap.title_card),
+    PHOTO("foto", R.mipmap.photo_card),
+    URL("url", R.mipmap.url_card),
+    SOURCE(" ", R.mipmap.source_card),
+    BONUS("Bonus", R.mipmap.default_news_image);
 
     private String formulation;
-    private int badge;
+    private Integer badge;
     private Set<News> news = new HashSet<>();
 
-    Challenge(String formulation, int badge) {
+    Challenge(String formulation, Integer badge) {
         this.formulation = formulation;
         this.badge = badge;
 //        this.news.addAll();
@@ -32,7 +32,7 @@ public enum Challenge {
     public String getFormulation() {
         return this.formulation;
     }
-    public int getBadge() {
+    public Integer getBadge() {
         return this.badge;
     }
 

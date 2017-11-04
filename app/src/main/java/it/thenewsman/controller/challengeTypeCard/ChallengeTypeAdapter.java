@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.List;
 
@@ -44,7 +45,10 @@ public class ChallengeTypeAdapter extends RecyclerView.Adapter<ChallengeTypeAdap
         holder.title.setText(c.getFormulation());
 
         // loading album cover using Glide library
-        Glide.with(mContext).load(c.getBadge()).into(holder.card_thumbnail);
+        Glide.with(mContext).load(c.getBadge())
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .centerCrop()
+                .into(holder.card_thumbnail);
 
         holder.card_thumbnail.setOnClickListener(new View.OnClickListener() {
             @Override

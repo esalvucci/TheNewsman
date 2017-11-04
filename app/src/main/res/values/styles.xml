@@ -30,4 +30,22 @@
     <style name="ButtonStyle" parent="Base.Widget.AppCompat.Button.Colored">
         <item name="colorButtonNormal">@color/colorPrimaryDark</item>
     </style>
+
+    <declare-styleable name="ChristmasTree">
+        <attr name="light" format="color" />
+        <attr name="medium" format="color" />
+        <attr name="dark" format="color" />
+    </declare-styleable>
+
+    <style name="green_level" parent="DefaultLevel">
+        <item name="light" format="color">#66ff00</item>
+        <item name="medium" format="color">#44aa00</item>
+        <item name="dark" format="color">#225500</item>
+    </style>
+
+    <style name="DefaultLevel">
+        <item name="light" format="color">#cde2f6</item>
+        <item name="medium" format="color">@color/colorPrimary</item>
+        <item name="dark" format="color">@color/colorPrimaryDark</item>
+    </style>
 </resources>

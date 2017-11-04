@@ -17,8 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorAccent"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
-        <!-- app:logo="@mipmap/logo" -->
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:logo="@mipmap/logo"/>
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"

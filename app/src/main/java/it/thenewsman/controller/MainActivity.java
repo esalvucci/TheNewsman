@@ -1,10 +1,12 @@
 package it.thenewsman.controller;
 
+import android.graphics.drawable.Drawable;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -12,8 +14,10 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.ContextThemeWrapper;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +26,8 @@ import it.thenewsman.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,16 +40,14 @@ public class MainActivity extends AppCompatActivity
         this.getSupportActionBar().setDisplayShowTitleEnabled(false);
         this.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        // this.getSupportActionBar().setLogo(R.mipmap.logo);
-
-
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
+        this.setupViewPager(viewPager);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
-        tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimaryDark));
-        
+        this.tabLayout = (TabLayout) findViewById(R.id.tabs);
+        this.tabLayout.setupWithViewPager(viewPager);
+        this.tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimaryDark));
+        this.setupTabIcons();
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -56,17 +60,24 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+
         return true;
     }
 
     // From --> https://www.androidhive.info/2015/09/android-material-design-working-with-tabs/
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new MainFragment(), "ONE");
-        adapter.addFragment(new MainFragment(), "TWO");
-        adapter.addFragment(new MainFragment(), "THREE");
+        adapter.addFragment(new MainFragment(), "Prove");
+        adapter.addFragment(new MainFragment(), "Classifica");
+        adapter.addFragment(new MainFragment(), "Utente");
         viewPager.setAdapter(adapter);
+    }
+
+    private void setupTabIcons() {
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_stars_24dp);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_assessment_24dp);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_user_24dp);
+        tabLayout.getTabAt(2).setText("Reporter");
     }
 
     @Override
@@ -122,14 +133,14 @@ public class MainActivity extends AppCompatActivity
             return mFragmentList.size();
         }
 
-        public void addFragment(Fragment fragment, String title) {
+        private void addFragment(Fragment fragment, String title) {
             mFragmentList.add(fragment);
             mFragmentTitleList.add(title);
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
+            return null;
         }
     }
 }
