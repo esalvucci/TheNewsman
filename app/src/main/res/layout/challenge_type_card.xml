@@ -34,7 +34,7 @@
                 android:paddingEnd="@dimen/card_padding"
                 android:paddingTop="@dimen/title_padding"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/card_title" />
+                android:textSize="@dimen/card_text" />
 
         </RelativeLayout>
 

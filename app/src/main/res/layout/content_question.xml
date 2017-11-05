@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textSize="@dimen/card_title"
+        android:textSize="@dimen/card_text"
         android:text="Prova di formulazione di una domanda" />
 
     <ImageView
@@ -21,6 +21,6 @@
         android:src="@mipmap/default_news_image"
         />
 
-    <include layout="@layout/content_boolean_question" />
+    <include layout="@layout/content_answer_buttons" />
 
 </LinearLayout>

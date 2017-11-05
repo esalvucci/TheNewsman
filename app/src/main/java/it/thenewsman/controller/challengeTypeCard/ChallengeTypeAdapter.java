@@ -2,6 +2,8 @@ package it.thenewsman.controller.challengeTypeCard;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.List;
 
 import it.thenewsman.R;
+import it.thenewsman.controller.BooleanQuestionActivity;
 import it.thenewsman.controller.QuestionActivity;
 import it.thenewsman.model.challenge.Challenge;
 
@@ -41,8 +44,9 @@ public class ChallengeTypeAdapter extends RecyclerView.Adapter<ChallengeTypeAdap
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
-        Challenge c = challengeTypes.get(position);
-        holder.title.setText(c.getFormulation());
+        final Challenge c = challengeTypes.get(position);
+        Resources resources = mContext.getResources();
+        holder.title.setText(resources.getText(c.getFormulation()));
 
         // loading album cover using Glide library
         Glide.with(mContext).load(c.getBadge())
@@ -53,9 +57,12 @@ public class ChallengeTypeAdapter extends RecyclerView.Adapter<ChallengeTypeAdap
         holder.card_thumbnail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(mContext, QuestionActivity.class);
+
+                Intent intent = new Intent(mContext, BooleanQuestionActivity.class);
+                Bundle mBundle = new Bundle();
+                mBundle.putSerializable("challenge", c);
+                intent.putExtras(mBundle);
                 mContext.startActivity(intent);
-                // ToDo
 
             }
         });

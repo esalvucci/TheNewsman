@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".controller.QuestionActivity"></activity>
+        <activity android:name=".controller.BooleanQuestionActivity" />
     </application>
 
 </manifest>
