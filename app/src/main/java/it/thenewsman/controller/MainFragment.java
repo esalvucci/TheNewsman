@@ -1,8 +1,10 @@
 package it.thenewsman.controller;
 
+import android.animation.StateListAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.net.sip.SipSession;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -11,7 +13,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.ListView;
+
+import com.imangazaliev.circlemenu.CenterMenuButton;
+import com.imangazaliev.circlemenu.CircleMenu;
+import com.imangazaliev.circlemenu.CircleMenuButton;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -49,25 +56,55 @@ public class MainFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        final CircleMenu circleMenu = (CircleMenu) view.findViewById(R.id.circleMenu);
 
-        List<Challenge> challengeTypes = new ArrayList<>(Arrays.asList(Challenge.values()));
-        RecyclerView.Adapter<ChallengeTypeAdapter.MyViewHolder> adapter =
-                new ChallengeTypeAdapter(this.getContext(), challengeTypes);
+        final Intent intent = new Intent(getContext(), BooleanQuestionActivity.class);
 
-        adapter.notifyDataSetChanged();
+        circleMenu.setOnItemClickListener(new CircleMenu.OnItemClickListener() {
+            @Override
+            public void onItemClick(CircleMenuButton menuButton) {
 
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this.getContext(), 2);
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.addItemDecoration(new GridSpacingItemDecoration(2,
-                this.getContext(), true));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter);
+                switch (menuButton.getId()) {
+                    case R.id.title :
+                        intent.putExtra("ChallengeIntent", Challenge.TITLE);
+                        break;
+                    case R.id.photo :
+                        intent.putExtra("ChallengeIntent", Challenge.PHOTO);
+                        break;
+                    case R.id.url :
+                        intent.putExtra("ChallengeIntent", Challenge.URL);
+                        break;
+                    case R.id.source :
+                        intent.putExtra("ChallengeIntent", Challenge.SOURCE);
+                        break;
+                    case R.id.bonus :
+                        intent.putExtra("ChallengeIntent", Challenge.BONUS);
+                        break;
+
+                    default:
+                        break;
+                }
+
+                startActivity(intent);
+            }
+        });
+
+        circleMenu.setStateUpdateListener(new CircleMenu.OnStateUpdateListener() {
+            @Override
+            public void onMenuExpanded() {
+
+            }
+
+            @Override
+            public void onMenuCollapsed() {
+
+            }
+        });
 
         return view;
     }

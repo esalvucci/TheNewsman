@@ -8,11 +8,56 @@
     tools:context=".controller.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
+    <com.imangazaliev.circlemenu.CircleMenu
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:scrollbars="vertical" />
+        android:layout_centerInParent="true"
+        android:id="@+id/circleMenu"
+        >
+
+            <com.imangazaliev.circlemenu.CircleMenuButton
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:colorNormal="@color/orange_challenge"
+                app:colorPressed="#1E88E5"
+                app:icon="@drawable/ic_title_24dp"
+                />
+
+        <com.imangazaliev.circlemenu.CircleMenuButton
+            android:id="@+id/photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:colorNormal="@color/red_challenge"
+            app:colorPressed="#1E88E5"
+            app:icon="@drawable/ic_photo_24dp"
+            />
+
+        <com.imangazaliev.circlemenu.CircleMenuButton
+            android:id="@+id/url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:colorNormal="@color/green_challenge"
+            app:colorPressed="#1E88E5"
+            app:icon="@drawable/ic_url_24dp"
+            />
+
+        <com.imangazaliev.circlemenu.CircleMenuButton
+            android:id="@+id/source"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:colorNormal="@color/purple_challenge"
+            app:colorPressed="#43A047"
+            app:icon="@drawable/ic_source_24dp"/>
+
+        <com.imangazaliev.circlemenu.CircleMenuButton
+            android:id="@+id/bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:colorNormal="@color/blue_challenge"
+            app:colorPressed="#E53935"
+            app:icon="@drawable/ic_bonus_24dp" />
+
+    </com.imangazaliev.circlemenu.CircleMenu>
 
 </RelativeLayout>

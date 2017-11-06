@@ -3,8 +3,24 @@
     <color name="colorPrimary">#53b4df</color>
     <color name="colorPrimaryDark">#2d8db8</color>
     <color name="colorAccent">#ffffff</color>
-    <color name="obtainedBadge">#fb9902</color>
+
+    <!--
+        colors WCAG min AA compliant
+
+        <color name="toObtainBadge">#b2b1ba</color>
+        <color name="green_challenge">#028A00</color>
+        <color name="orange_challenge">#FF9B05</color>
+        <color name="red_challenge">#E10805</color>
+        <color name="purple_challenge">#BF1EEB</color>
+        <color name="blue_challenge">#3D61FF</color>
+    -->
+
     <color name="toObtainBadge">#b2b1ba</color>
-    <color name="level">#44aa00</color>
+    <color name="green_challenge">#45D21A</color>
+    <color name="orange_challenge">#FFA61A</color>
+    <color name="red_challenge">#FF615C</color>
+    <color name="purple_challenge">#D871F4</color>
+    <color name="blue_challenge">#6B86FF</color>
+
 
 </resources>

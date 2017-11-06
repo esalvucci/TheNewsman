@@ -18,7 +18,7 @@ public abstract class QuestionActivity extends ToolbarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Challenge challenge = (Challenge) getIntent().getSerializableExtra("challenge");
+        Challenge challenge = (Challenge) getIntent().getSerializableExtra("ChallengeIntent");
 
         Resources resources = this.getApplicationContext().getResources();
         getSupportActionBar().setTitle(resources.getText(challenge.getFormulation()));
