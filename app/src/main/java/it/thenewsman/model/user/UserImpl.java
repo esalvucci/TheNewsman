@@ -1,5 +1,6 @@
 package it.thenewsman.model.user;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -12,7 +13,7 @@ import it.thenewsman.model.challenge.Challenge;
 /**
  * Concrete implementation of User concept
  */
-public class UserImpl implements User {
+public class UserImpl implements User{
 
     private String name;
     private String avatar;

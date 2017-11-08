@@ -17,8 +17,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.List;
 
 import it.thenewsman.R;
-import it.thenewsman.controller.BooleanQuestionActivity;
-import it.thenewsman.controller.QuestionActivity;
+import it.thenewsman.controller.question.QuestionActivity;
 import it.thenewsman.model.challenge.Challenge;
 
 /**
@@ -58,7 +57,7 @@ public class ChallengeTypeAdapter extends RecyclerView.Adapter<ChallengeTypeAdap
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(mContext, BooleanQuestionActivity.class);
+                Intent intent = new Intent(mContext, QuestionActivity.class);
                 Bundle mBundle = new Bundle();
                 mBundle.putSerializable("challenge", c);
                 intent.putExtras(mBundle);

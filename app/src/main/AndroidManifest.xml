@@ -16,8 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.QuestionActivity"></activity>
-        <activity android:name=".controller.BooleanQuestionActivity" />
+        <activity android:name=".controller.question.BooleanQuestionActivity">
+
+        </activity>
     </application>
 
 </manifest>

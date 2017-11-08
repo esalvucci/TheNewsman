@@ -1,5 +1,7 @@
 package it.thenewsman.model.user;
 
+import java.io.Serializable;
+
 import it.thenewsman.model.Level;
 import it.thenewsman.model.challenge.Challenge;
 
@@ -7,7 +9,7 @@ import it.thenewsman.model.challenge.Challenge;
  * Interface that models the concept of the User of the app.
  */
 
-public interface User {
+public interface User extends Serializable {
 
     /**
      * @return the name of the user as a {@link String}.

@@ -17,13 +17,11 @@ public enum Challenge implements Serializable {
     TITLE(R.string.title_challenge, R.mipmap.title_card),
     PHOTO(R.string.title_challenge, R.mipmap.photo_card),
     URL(R.string.title_challenge, R.mipmap.url_card),
-//    CONTENT("", R.mipmap.default_news_image);
-    SOURCE(R.string.title_challenge, R.mipmap.source_card),
+    CONTENT(R.string.about, R.mipmap.source_card),
     BONUS(R.string.title_challenge, R.mipmap.default_news_image);
 
     private int formulation;
     private int badge;
-    private Set<News> news = new HashSet<>();
 
     Challenge(int formulation, int badge) {
         this.formulation = formulation;
@@ -31,9 +29,6 @@ public enum Challenge implements Serializable {
 //        this.news.addAll();
     }
 
-    public Set<News> getNews() {
-        return this.news;
-    }
     public int getFormulation() {
         return this.formulation;
     }
@@ -44,8 +39,7 @@ public enum Challenge implements Serializable {
     public String toString() {
         return this.name() + ":" +
                 "\nFormulazione della domanda: " + this.formulation +
-                "\nBadge: " + this.badge +
-                "\nNews: " + this.news;
+                "\nBadge: " + this.badge;
     }
 
 }
