@@ -1,14 +1,11 @@
 package it.thenewsman.controller.question;
 
-import android.graphics.PorterDuff;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -17,7 +14,6 @@ import com.google.android.flexbox.FlexboxLayout;
 
 import it.thenewsman.R;
 import it.thenewsman.controller.ToolbarActivity;
-import it.thenewsman.controller.button.CustomButton;
 import it.thenewsman.model.challenge.Challenge;
 import it.thenewsman.model.challenge.UserChallenge;
 import it.thenewsman.model.news.News;
@@ -99,14 +95,14 @@ public class BooleanQuestionActivity extends ToolbarActivity {
 
         FlexboxLayout layout = (FlexboxLayout) findViewById(R.id.content_answer);
 
-        Button trueButton = CustomButton.getInstance(R.drawable.rounded_button, Gravity.CENTER,
-                this.getApplicationContext());
+        Button trueButton = new Button(this);
+        trueButton.setBackgroundResource(R.drawable.rounded_button);
         trueButton.setTextColor(getResources().getColor(R.color.colorAccent));
         trueButton.setText(R.string.boolean_true);
         layout.addView(trueButton);
 
-        Button falseButton = CustomButton.getInstance(R.drawable.rounded_button, Gravity.CENTER,
-                this.getApplicationContext());
+        Button falseButton = new Button(this.getApplicationContext());
+        trueButton.setBackgroundResource(R.drawable.rounded_button);
         falseButton.setTextColor(getResources().getColor(R.color.colorAccent));
         falseButton.setText(R.string.boolean_false);
         layout.addView(falseButton);
