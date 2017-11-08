@@ -14,9 +14,8 @@ import com.imangazaliev.circlemenu.CircleMenu;
 import com.imangazaliev.circlemenu.CircleMenuButton;
 
 import it.thenewsman.R;
-import it.thenewsman.controller.question.BooleanQuestionActivity;
-import it.thenewsman.controller.question.BooleanQuestionFragment;
-import it.thenewsman.controller.question.QuestionActivity;
+import it.thenewsman.controller.question.AnswerActivity;
+import it.thenewsman.controller.question.MultipleAnswerActivity;
 import it.thenewsman.model.challenge.Challenge;
 import it.thenewsman.model.challenge.UserChallenge;
 import it.thenewsman.model.user.User;
@@ -64,7 +63,7 @@ public class MainFragment extends Fragment {
             public void onItemClick(CircleMenuButton menuButton) {
 
                 Intent intent = new Intent(getContext()
-                        , BooleanQuestionActivity.class);
+                        , MultipleAnswerActivity.class);
                 Challenge challenge = null;
 
                 switch (menuButton.getId()) {

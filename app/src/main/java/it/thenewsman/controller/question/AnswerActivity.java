@@ -18,7 +18,9 @@ import it.thenewsman.model.challenge.Challenge;
 import it.thenewsman.model.challenge.UserChallenge;
 import it.thenewsman.model.news.News;
 
-public class BooleanQuestionActivity extends ToolbarActivity {
+public abstract class AnswerActivity extends ToolbarActivity {
+
+    private UserChallenge userChallenge;
 
     @Override
     public void setContentLayout() {
@@ -29,16 +31,12 @@ public class BooleanQuestionActivity extends ToolbarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        UserChallenge userChallenge = (UserChallenge) getIntent().getSerializableExtra("UserChallengeIntent");
-
-        News news = userChallenge.getFilteredNews();
+        this.userChallenge = (UserChallenge) getIntent().getSerializableExtra("UserChallengeIntent");
+        News news = this.userChallenge.getFilteredNews();
 
         this.setQuestionFormulation(userChallenge.getChallenge().getFormulation());
         this.setCategoryLinearLayout(userChallenge.getChallenge(), news);
         this.setButtons(news);
-
-
-
     }
 
     public void setQuestionFormulation(int formulation) {
@@ -91,21 +89,9 @@ public class BooleanQuestionActivity extends ToolbarActivity {
         viewGroup.addView(layout);
     }
 
-    public void setButtons(News news) {
-
-        FlexboxLayout layout = (FlexboxLayout) findViewById(R.id.content_answer);
-
-        Button trueButton = new Button(this);
-        trueButton.setBackgroundResource(R.drawable.rounded_button);
-        trueButton.setTextColor(getResources().getColor(R.color.colorAccent));
-        trueButton.setText(R.string.boolean_true);
-        layout.addView(trueButton);
-
-        Button falseButton = new Button(this.getApplicationContext());
-        trueButton.setBackgroundResource(R.drawable.rounded_button);
-        falseButton.setTextColor(getResources().getColor(R.color.colorAccent));
-        falseButton.setText(R.string.boolean_false);
-        layout.addView(falseButton);
-
+    protected UserChallenge getUserChallenge() {
+        return this.userChallenge;
     }
+
+    public abstract void setButtons(News news);
 }

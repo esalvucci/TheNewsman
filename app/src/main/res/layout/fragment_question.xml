@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/question_fragment"
-    tools:context="it.thenewsman.controller.question.QuestionActivity">
+    tools:context="it.thenewsman.controller.question.AnswerActivity">
 
     <TextView
         android:id="@+id/question_formulation"

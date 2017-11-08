@@ -51,6 +51,8 @@ public class UserChallenge implements Serializable {
 
         Set<CategoryNews> set =  new HashSet<>();
         set.add(CategoryNews.PROPAGANDA);
+        set.add(CategoryNews.INFORMATION);
+        set.add(CategoryNews.ADVERTISEMENT);
 
         Set<String> adejctives = new HashSet<>();
         adejctives.add("aggettivo");

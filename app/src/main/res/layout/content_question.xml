@@ -21,6 +21,10 @@
         android:layout_height="wrap_content"
         />
 
-    <include layout="@layout/content_answer_buttons" />
+    <include layout="@layout/content_answer_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        />
 
 </LinearLayout>
