@@ -15,10 +15,10 @@ import it.thenewsman.model.news.News;
  */
 public enum Challenge implements Serializable {
     TITLE(R.string.title_challenge, R.mipmap.title_card),
-    PHOTO(R.string.title_challenge, R.mipmap.photo_card),
-    URL(R.string.title_challenge, R.mipmap.url_card),
-    CONTENT(R.string.about, R.mipmap.source_card),
-    BONUS(R.string.title_challenge, R.mipmap.default_news_image);
+    PHOTO(R.string.photo_challenge, R.mipmap.photo_card),
+    URL(R.string.url_challenge, R.mipmap.url_card),
+    CONTENT(R.string.content_challenge, R.mipmap.source_card),
+    BONUS(R.string.bonus_challenge, R.mipmap.default_news_image);
 
     private int formulation;
     private int badge;

@@ -21,10 +21,10 @@ public class MultipleAnswerActivity extends AnswerActivity {
     public void setButtons(News news) {
         FlexboxLayout layout = (FlexboxLayout) findViewById(R.id.content_answer);
 
-        for (CategoryNews c : this.getUserChallenge().getFilteredNews().getCategories()) {
+        for (String s : this.getUserChallenge().getFilteredNews().getEmotions()) {
             Button trueButton = new Button(new ContextThemeWrapper(this, R.style.MyButtonStyle));
 
-            trueButton.setText(c.name());
+            trueButton.setText(s);
             layout.addView(trueButton);
         }
 

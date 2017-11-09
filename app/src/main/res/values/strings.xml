@@ -15,4 +15,9 @@
     <string name="boolean_true">Vero</string>
     <string name="boolean_false">Falso</string>
 
+    <string name="photo_challenge">foto</string>
+    <string name="url_challenge" >URL</string>
+    <string name="content_challenge">testo</string>
+    <string name="bonus_challenge">informazione riguardo la</string>
+
 </resources>

@@ -13,9 +13,13 @@ import android.widget.ListView;
 import com.imangazaliev.circlemenu.CircleMenu;
 import com.imangazaliev.circlemenu.CircleMenuButton;
 
+import java.util.Random;
+
 import it.thenewsman.R;
 import it.thenewsman.controller.question.AnswerActivity;
+import it.thenewsman.controller.question.BooleanAnswerActivity;
 import it.thenewsman.controller.question.MultipleAnswerActivity;
+import it.thenewsman.model.Question;
 import it.thenewsman.model.challenge.Challenge;
 import it.thenewsman.model.challenge.UserChallenge;
 import it.thenewsman.model.user.User;
@@ -62,8 +66,6 @@ public class MainFragment extends Fragment {
             @Override
             public void onItemClick(CircleMenuButton menuButton) {
 
-                Intent intent = new Intent(getContext()
-                        , MultipleAnswerActivity.class);
                 Challenge challenge = null;
 
                 switch (menuButton.getId()) {
@@ -87,8 +89,17 @@ public class MainFragment extends Fragment {
                         break;
                 }
 
-                intent.putExtra("UserChallengeIntent", new UserChallenge(user, challenge));
+                Intent intent;
+                if (challenge.equals(Challenge.URL)) {
+                    intent = new Intent(getContext()
+                            , MultipleAnswerActivity.class);
+                } else {
+                    intent = new Random().nextBoolean() ?
+                            new Intent(getContext(), MultipleAnswerActivity.class) :
+                            new Intent(getContext(), BooleanAnswerActivity.class);
+                }
 
+                intent.putExtra("UserChallengeIntent", new UserChallenge(user, challenge));
                 startActivity(intent);
             }
         });

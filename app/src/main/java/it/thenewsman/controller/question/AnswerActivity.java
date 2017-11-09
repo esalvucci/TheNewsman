@@ -14,6 +14,7 @@ import com.google.android.flexbox.FlexboxLayout;
 
 import it.thenewsman.R;
 import it.thenewsman.controller.ToolbarActivity;
+import it.thenewsman.model.Question;
 import it.thenewsman.model.challenge.Challenge;
 import it.thenewsman.model.challenge.UserChallenge;
 import it.thenewsman.model.news.News;
@@ -21,6 +22,7 @@ import it.thenewsman.model.news.News;
 public abstract class AnswerActivity extends ToolbarActivity {
 
     private UserChallenge userChallenge;
+    private Question question;
 
     @Override
     public void setContentLayout() {
@@ -32,17 +34,19 @@ public abstract class AnswerActivity extends ToolbarActivity {
         super.onCreate(savedInstanceState);
 
         this.userChallenge = (UserChallenge) getIntent().getSerializableExtra("UserChallengeIntent");
+        this.question = Question.getRandomQuestion();
+
         News news = this.userChallenge.getFilteredNews();
 
-        this.setQuestionFormulation(userChallenge.getChallenge().getFormulation());
+        this.setQuestionFormulation(this.question.getFormulation());
         this.setCategoryLinearLayout(userChallenge.getChallenge(), news);
         this.setButtons(news);
     }
 
-    public void setQuestionFormulation(int formulation) {
-        String formulationString = getResources().getString(formulation);
+    public void setQuestionFormulation(String formulation) {
+
         TextView textView = (TextView) findViewById(R.id.question_formulation);
-        textView.setText(formulationString);
+        textView.setText(formulation);
     }
 
     public void setCategoryLinearLayout(Challenge challenge, News news) {
