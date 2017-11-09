@@ -9,7 +9,7 @@ import it.thenewsman.model.user.UserDAO;
  */
 public abstract class DAOFactory {
 
-    protected enum DAOType {
+    public enum DAOType {
         SQLITE, MYSQLITE, JSON;
     }
 

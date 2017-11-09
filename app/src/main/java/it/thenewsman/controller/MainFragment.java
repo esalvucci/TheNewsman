@@ -22,17 +22,10 @@ import it.thenewsman.controller.question.MultipleAnswerActivity;
 import it.thenewsman.model.Question;
 import it.thenewsman.model.challenge.Challenge;
 import it.thenewsman.model.challenge.UserChallenge;
+import it.thenewsman.model.dao.DAOFactory;
 import it.thenewsman.model.user.User;
 import it.thenewsman.model.user.UserImpl;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link MainFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link MainFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class MainFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
@@ -50,8 +43,9 @@ public class MainFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.user = new UserImpl("Enrico", "avatar", 0, null);
-        this.user.addChallenge(Challenge.URL, 10);
+
+        DAOFactory daoFactory = DAOFactory.getDaoFactory(DAOFactory.DAOType.SQLITE);
+        this.user = daoFactory.getUserDAO().select();
     }
 
     @Override

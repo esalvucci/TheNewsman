@@ -27,6 +27,7 @@ import it.thenewsman.controller.user.UserAdapter;
 import it.thenewsman.model.Level;
 import it.thenewsman.model.challenge.Challenge;
 import it.thenewsman.model.challenge.UserChallenge;
+import it.thenewsman.model.dao.DAOFactory;
 import it.thenewsman.model.user.User;
 import it.thenewsman.model.user.UserImpl;
 
@@ -47,25 +48,9 @@ public class RankFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        User enrico = new UserImpl("Enrico", "https://pbs.twimg.com/profile_images/464390622820847616/ao7pTGUB_400x400.jpeg", 7, null);
-        enrico.setLevel(Level.REPORTER);
 
-        User francesca = new UserImpl("Francesca", "",
-                15, null);
-        francesca.setLevel(Level.JOURNALIST);
-
-        User pietro = new UserImpl("Pietro", "",
-                20, null);
-        pietro.setLevel(Level.EDITORIALIST);
-
-        User giorgia = new UserImpl("Giorgia", "",
-                3, null);
-        giorgia.setLevel(Level.REPORTER);
-
-        this.users.add(pietro);
-        this.users.add(francesca);
-        this.users.add(enrico);
-        this.users.add(giorgia);
+        DAOFactory daoFactory = DAOFactory.getDaoFactory(DAOFactory.DAOType.SQLITE);
+        this.users.addAll(daoFactory.getUserDAO().selectMany());
 
     }
 

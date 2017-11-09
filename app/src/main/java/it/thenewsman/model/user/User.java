@@ -1,6 +1,8 @@
 package it.thenewsman.model.user;
 
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.Map;
 
 import it.thenewsman.model.Level;
 import it.thenewsman.model.challenge.Challenge;
@@ -39,6 +41,11 @@ public interface User extends Serializable {
     Level getLevel();
 
     /**
+     * @return the Challenges which the user has completed.
+     */
+    Collection<Challenge> getChallenges();
+
+    /**
      * @return If the User has obtained his Acknowledgment, the most important reward.
      */
     boolean hasAcknowledgment();
@@ -59,7 +66,7 @@ public interface User extends Serializable {
      * Adds a challenge completed by the User.
      * @param challenge completed by the User.
      */
-    void addChallenge(Challenge challenge, int points);
+    void addChallenge(Challenge challenge);
 
     /**
      * Sets if the User has obtained his Acknowledgment, the most important reward during the
