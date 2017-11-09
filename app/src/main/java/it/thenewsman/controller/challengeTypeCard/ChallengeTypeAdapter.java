@@ -53,6 +53,7 @@ public class ChallengeTypeAdapter extends RecyclerView.Adapter<ChallengeTypeAdap
                 .centerCrop()
                 .into(holder.card_thumbnail);
 
+/*
         holder.card_thumbnail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,6 +66,7 @@ public class ChallengeTypeAdapter extends RecyclerView.Adapter<ChallengeTypeAdap
 
             }
         });
+*/
     }
 
     @Override

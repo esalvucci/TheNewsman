@@ -73,9 +73,9 @@ public class UserAdapter extends ArrayAdapter<User> {
                 result=convertView;
             }
 
-
             Glide.with(getContext())
                     .load(Uri.parse(dataModel.getAvatar()))
+                    .placeholder(R.drawable.ic_person_24dp)
                     .bitmapTransform(new CircleTransform(getContext()))
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(viewHolder.avatar);

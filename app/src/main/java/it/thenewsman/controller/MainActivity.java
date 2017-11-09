@@ -1,6 +1,7 @@
 package it.thenewsman.controller;
 
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -18,21 +19,33 @@ import android.view.ContextThemeWrapper;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import it.thenewsman.R;
+import it.thenewsman.model.Level;
+import it.thenewsman.model.user.User;
+import it.thenewsman.model.user.UserImpl;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private TabLayout tabLayout;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        this.user = new UserImpl("Enrico", "https://pbs.twimg.com/profile_images/464390622820847616/ao7pTGUB_400x400.jpeg", 20, null);
+        this.user.setLevel(Level.REPORTER);
+
 
         // Inizializzo la custom_toolbar
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -69,7 +82,7 @@ public class MainActivity extends AppCompatActivity
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new MainFragment(), "Prove");
         adapter.addFragment(new RankFragment(), "Classifica");
-        adapter.addFragment(new MainFragment(), "Utente");
+        adapter.addFragment(new UserDetailsFragment(), "Utente");
         viewPager.setAdapter(adapter);
     }
 
@@ -77,7 +90,7 @@ public class MainActivity extends AppCompatActivity
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_stars_24dp);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_assessment_24dp);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_user_24dp);
-        tabLayout.getTabAt(2).setText("Reporter");
+        tabLayout.getTabAt(2).setText(this.user.getLevel().getName());
     }
 
     @Override
@@ -94,9 +107,22 @@ public class MainActivity extends AppCompatActivity
                 break;
         }
         startActivity(i);
-*/
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ImageView avatar = (ImageView) findViewById(R.id.drawer_avatar);
+        TextView name = (TextView) findViewById(R.id.drawer_name);
+        TextView level = (TextView) findViewById(R.id.drawer_level);
+
+        Glide.with(this)
+                .load(Uri.parse(this.user.getAvatar()))
+                .placeholder(R.drawable.ic_person_24dp)
+                .bitmapTransform(new CircleTransform(this))
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(avatar);
+
         drawer.closeDrawer(GravityCompat.START);
+*/
+
         return true;
     }
 

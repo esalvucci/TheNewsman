@@ -47,15 +47,26 @@ public class RankFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        User enrico = new UserImpl("Enrico", "https://pbs.twimg.com/profile_images/464390622820847616/ao7pTGUB_400x400.jpeg", 10, null);
-        enrico.setLevel(Level.EDITORIALIST);
+        User enrico = new UserImpl("Enrico", "https://pbs.twimg.com/profile_images/464390622820847616/ao7pTGUB_400x400.jpeg", 7, null);
+        enrico.setLevel(Level.REPORTER);
 
-        User francesca = new UserImpl("Francesca", "https://0.academia-photos.com/41918860/11334377/12644318/s200_francesca.rissotto.jpg_oh_71db60db1ab08c646fcc89816b73bb43_oe_5743ceb7",
-                7, null);
-        francesca.setLevel(Level.REPORTER);
+        User francesca = new UserImpl("Francesca", "",
+                15, null);
+        francesca.setLevel(Level.JOURNALIST);
 
-        this.users.add(enrico);
+        User pietro = new UserImpl("Pietro", "",
+                20, null);
+        pietro.setLevel(Level.EDITORIALIST);
+
+        User giorgia = new UserImpl("Giorgia", "",
+                3, null);
+        giorgia.setLevel(Level.REPORTER);
+
+        this.users.add(pietro);
         this.users.add(francesca);
+        this.users.add(enrico);
+        this.users.add(giorgia);
+
     }
 
     @Override

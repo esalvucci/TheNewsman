@@ -37,10 +37,7 @@
         android:id="@+id/rank_level"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/rank_points"
-        android:layout_alignParentEnd="true"
-        android:layout_alignWithParentIfMissing="true"
-        android:text="@string/level"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        android:gravity="right"/>
 
 </RelativeLayout>
