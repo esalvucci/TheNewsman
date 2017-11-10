@@ -2,6 +2,7 @@ package it.thenewsman.controller;
 
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -43,13 +44,11 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.user = new UserImpl("Enrico", "https://pbs.twimg.com/profile_images/464390622820847616/ao7pTGUB_400x400.jpeg", 20, null);
-        this.user.setLevel(Level.REPORTER);
-
-
         // Inizializzo la custom_toolbar
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         this.setSupportActionBar(mToolbar);
+
+        // ToDo Handle this potentially NullPointerException
         this.getSupportActionBar().setDisplayShowTitleEnabled(false);
         this.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
@@ -80,48 +79,25 @@ public class MainActivity extends AppCompatActivity
     // From --> https://www.androidhive.info/2015/09/android-material-design-working-with-tabs/
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new MainFragment(), "Prove");
-        adapter.addFragment(new RankFragment(), "Classifica");
-        adapter.addFragment(new UserDetailsFragment(), "Utente");
+        adapter.addFragment(new MainFragment(), getResources().getString(R.string.challenge));
+        adapter.addFragment(new RankFragment(), getResources().getString(R.string.rank));
+        adapter.addFragment(new UserDetailsFragment(), getResources().getString(R.string.user_details));
         viewPager.setAdapter(adapter);
     }
 
     private void setupTabIcons() {
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_stars_24dp);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_assessment_24dp);
-        tabLayout.getTabAt(2).setIcon(R.drawable.ic_user_24dp);
-        tabLayout.getTabAt(2).setText(this.user.getLevel().getName());
+            // ToDo Handle potentially Null Pointer Exceptions
+
+            tabLayout.getTabAt(0).setIcon(R.drawable.ic_stars_24dp);
+            tabLayout.getTabAt(1).setIcon(R.drawable.ic_assessment_24dp);
+            tabLayout.getTabAt(2).setIcon(R.drawable.ic_user_24dp);
+            tabLayout.getTabAt(2).setText(this.user.getLevel().getName());
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-/*        Intent i = null;
-        switch (item.getItemId()) {
-            case R.id.info:
-                i = new Intent(this, AboutActivity.class);
-                break;
-            case R.id.licence:
-                i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.gnu.org/licenses/gpl-3.0.en.html"));
-                break;
-        }
-        startActivity(i);
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ImageView avatar = (ImageView) findViewById(R.id.drawer_avatar);
-        TextView name = (TextView) findViewById(R.id.drawer_name);
-        TextView level = (TextView) findViewById(R.id.drawer_level);
-
-        Glide.with(this)
-                .load(Uri.parse(this.user.getAvatar()))
-                .placeholder(R.drawable.ic_person_24dp)
-                .bitmapTransform(new CircleTransform(this))
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(avatar);
-
-        drawer.closeDrawer(GravityCompat.START);
-*/
+        // ToDo Add intent/activity link for all items in the drawer
 
         return true;
     }
@@ -143,9 +119,8 @@ public class MainActivity extends AppCompatActivity
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
 
-        public ViewPagerAdapter(FragmentManager manager) {
+        private ViewPagerAdapter(FragmentManager manager) {
             super(manager);
         }
 
@@ -161,8 +136,7 @@ public class MainActivity extends AppCompatActivity
 
         private void addFragment(Fragment fragment, String title) {
             mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
-        }
+       }
 
         @Override
         public CharSequence getPageTitle(int position) {

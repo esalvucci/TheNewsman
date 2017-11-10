@@ -47,26 +47,11 @@ public class ChallengeTypeAdapter extends RecyclerView.Adapter<ChallengeTypeAdap
         Resources resources = mContext.getResources();
         holder.title.setText(resources.getText(c.getFormulation()));
 
-        // loading album cover using Glide library
+        // loading user avatar using Glide library
         Glide.with(mContext).load(c.getBadge())
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .centerCrop()
                 .into(holder.card_thumbnail);
-
-/*
-        holder.card_thumbnail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(mContext, AnswerActivity.class);
-                Bundle mBundle = new Bundle();
-                mBundle.putSerializable("challenge", c);
-                intent.putExtras(mBundle);
-                mContext.startActivity(intent);
-
-            }
-        });
-*/
     }
 
     @Override

@@ -26,9 +26,7 @@ public class UserDetailsFragment extends Fragment {
     }
 
     public static UserDetailsFragment newInstance() {
-        UserDetailsFragment fragment = new UserDetailsFragment();
-
-        return fragment;
+        return new UserDetailsFragment();
     }
 
     @Override

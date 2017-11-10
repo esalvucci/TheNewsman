@@ -17,5 +17,8 @@
     <string name="url_challenge">Occhio alla fonte..</string>
     <string name="content_challenge">Hai letto il testo?</string>
     <string name="bonus_challenge">Sfida bonus</string>
+    <string name="challenge">sfida</string>
+    <string name="rank">classifica</string>
+    <string name="user_details">Utente</string>
 
 </resources>

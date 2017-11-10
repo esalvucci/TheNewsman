@@ -25,14 +25,6 @@ import it.thenewsman.model.challenge.UserChallenge;
 import it.thenewsman.model.user.User;
 import it.thenewsman.model.user.UserImpl;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link MainFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link MainFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class MainFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;

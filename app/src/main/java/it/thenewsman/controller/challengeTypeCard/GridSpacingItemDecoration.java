@@ -8,8 +8,8 @@ import android.util.TypedValue;
 import android.view.View;
 
 /**
-     * RecyclerView item decoration - give equal margin around grid item
-     */
+ * RecyclerView item decoration - give equal margin around grid item
+ */
     public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
  
         private int spanCount;

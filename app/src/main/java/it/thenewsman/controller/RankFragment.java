@@ -32,8 +32,6 @@ import it.thenewsman.model.user.UserImpl;
 
 public class RankFragment extends Fragment {
 
-    private OnFragmentInteractionListener mListener;
-    private ListView mListView;
     private List<User> users = new LinkedList<>();
 
     public RankFragment() {
@@ -47,25 +45,6 @@ public class RankFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        User enrico = new UserImpl("Enrico", "https://pbs.twimg.com/profile_images/464390622820847616/ao7pTGUB_400x400.jpeg", 7, null);
-        enrico.setLevel(Level.REPORTER);
-
-        User francesca = new UserImpl("Francesca", "",
-                15, null);
-        francesca.setLevel(Level.JOURNALIST);
-
-        User pietro = new UserImpl("Pietro", "",
-                20, null);
-        pietro.setLevel(Level.EDITORIALIST);
-
-        User giorgia = new UserImpl("Giorgia", "",
-                3, null);
-        giorgia.setLevel(Level.REPORTER);
-
-        this.users.add(pietro);
-        this.users.add(francesca);
-        this.users.add(enrico);
-        this.users.add(giorgia);
 
     }
 
@@ -77,7 +56,7 @@ public class RankFragment extends Fragment {
 
         ListAdapter userAdapter = new UserAdapter(this.users, this.getContext());
 
-        mListView = (ListView) view.findViewById(R.id.rank);
+        ListView mListView = (ListView) view.findViewById(R.id.rank);
         mListView.setAdapter(userAdapter);
 
         return view;
@@ -92,7 +71,7 @@ public class RankFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+        OnFragmentInteractionListener mListener = null;
     }
 
     public interface OnFragmentInteractionListener {

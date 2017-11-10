@@ -5,8 +5,6 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,12 +12,10 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import it.thenewsman.R;
-import it.thenewsman.controller.CircleTransform;
-import it.thenewsman.controller.CropCircleTransformation;
+import it.thenewsman.controller.user.avatar.CircleTransform;
 import it.thenewsman.model.user.User;
 
 /**
@@ -65,12 +61,9 @@ public class UserAdapter extends ArrayAdapter<User> {
                 viewHolder.level = (TextView) convertView.findViewById(R.id.rank_level);
                 viewHolder.avatar = (ImageView) convertView.findViewById(R.id.rank_avatar);
 
-                result=convertView;
-
                 convertView.setTag(viewHolder);
             } else {
                 viewHolder = (ViewHolder) convertView.getTag();
-                result=convertView;
             }
 
             Glide.with(getContext())

@@ -1,4 +1,4 @@
-package it.thenewsman.controller;
+package it.thenewsman.controller.user.avatar;
 
 import android.content.Context;
 import android.graphics.Bitmap;
