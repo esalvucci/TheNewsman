@@ -27,11 +27,14 @@ import it.thenewsman.controller.user.UserAdapter;
 import it.thenewsman.model.Level;
 import it.thenewsman.model.challenge.Challenge;
 import it.thenewsman.model.challenge.UserChallenge;
+import it.thenewsman.model.dao.DAOFactory;
 import it.thenewsman.model.user.User;
 import it.thenewsman.model.user.UserImpl;
 
 public class RankFragment extends Fragment {
 
+    private OnFragmentInteractionListener mListener;
+    private ListView mListView;
     private List<User> users = new LinkedList<>();
 
     public RankFragment() {
@@ -46,6 +49,9 @@ public class RankFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        DAOFactory daoFactory = DAOFactory.getDaoFactory(DAOFactory.DAOType.SQLITE);
+        this.users.addAll(daoFactory.getUserDAO().selectMany());
+
     }
 
     @Override
@@ -56,7 +62,7 @@ public class RankFragment extends Fragment {
 
         ListAdapter userAdapter = new UserAdapter(this.users, this.getContext());
 
-        ListView mListView = (ListView) view.findViewById(R.id.rank);
+        mListView = (ListView) view.findViewById(R.id.rank);
         mListView.setAdapter(userAdapter);
 
         return view;
@@ -71,7 +77,7 @@ public class RankFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        OnFragmentInteractionListener mListener = null;
+        mListener = null;
     }
 
     public interface OnFragmentInteractionListener {

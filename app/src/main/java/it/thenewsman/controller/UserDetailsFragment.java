@@ -12,14 +12,20 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 import it.thenewsman.R;
 import it.thenewsman.controller.challengeTypeCard.ChallengeTypeAdapter;
 import it.thenewsman.controller.challengeTypeCard.GridSpacingItemDecoration;
 import it.thenewsman.model.challenge.Challenge;
+import it.thenewsman.model.dao.DAOFactory;
+import it.thenewsman.model.user.User;
+import it.thenewsman.model.user.UserDAO;
 
 public class UserDetailsFragment extends Fragment {
+
+    private User user;
 
     public UserDetailsFragment() {
         // Required empty public constructor
@@ -32,6 +38,11 @@ public class UserDetailsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        DAOFactory daoFactory = DAOFactory.getDaoFactory(DAOFactory.DAOType.SQLITE);
+        UserDAO userDAO = daoFactory.getUserDAO();
+        this.user = userDAO.select();
+
     }
 
     @Override
@@ -42,7 +53,7 @@ public class UserDetailsFragment extends Fragment {
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
 
-        List<Challenge> challengeTypes = new ArrayList<>(Arrays.asList(Challenge.values()));
+        List<Challenge> challengeTypes = new LinkedList<>(this.user.getChallenges());
         RecyclerView.Adapter<ChallengeTypeAdapter.MyViewHolder> adapter =
                 new ChallengeTypeAdapter(this.getContext(), challengeTypes);
 
