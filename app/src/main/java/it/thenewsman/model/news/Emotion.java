@@ -3,7 +3,6 @@ package it.thenewsman.model.news;
 /**
  * Created by enrico on 11/8/17.
  */
-
 public enum Emotion {
 
     ANGER("rabbia"),
@@ -23,5 +22,12 @@ public enum Emotion {
 
     public String getName() {
         return this.name;
+    }
+
+    @Override
+    public String toString() {
+        return "Emotion{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }

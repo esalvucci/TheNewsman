@@ -1,9 +1,7 @@
 package it.thenewsman.controller.challengeTypeCard;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +15,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.List;
 
 import it.thenewsman.R;
-import it.thenewsman.controller.question.AnswerActivity;
 import it.thenewsman.model.challenge.Challenge;
 
 /**
@@ -45,7 +42,7 @@ public class ChallengeTypeAdapter extends RecyclerView.Adapter<ChallengeTypeAdap
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final Challenge c = challengeTypes.get(position);
         Resources resources = mContext.getResources();
-        holder.title.setText(resources.getText(c.getFormulation()));
+        holder.title.setText(resources.getText(c.getLabel()));
 
         // loading user avatar using Glide library
         Glide.with(mContext).load(c.getBadge())

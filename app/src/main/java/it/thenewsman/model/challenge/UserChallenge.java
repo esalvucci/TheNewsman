@@ -50,32 +50,7 @@ public class UserChallenge implements Serializable {
 //        Random rand = new Random();
 //        List<News> wordList = rand.ints(NEWS_SIZE, 0, NewsDataManager.getSize());
 
-        Set<CategoryNews> set =  new HashSet<>();
-        set.add(CategoryNews.PROPAGANDA);
-        set.add(CategoryNews.INFORMATION);
-        set.add(CategoryNews.ADVERTISEMENT);
-
-        Set<String> adejctives = new HashSet<>();
-        adejctives.add("aggettivo");
-
-        Set<String> emotions = new HashSet<>();
-        emotions.add(Emotion.CURIOSITY.getName());
-        emotions.add(Emotion.AMAZEMENT.getName());
-        emotions.add(Emotion.FEAR.getName());
-
-        return new NewsImpl("Le foto sensazionali di Venezia ghiacciata!",
-                "Nelle ultime settimana l’Italia è stata invasa da freddo e neve," +
-                        "persino al sud si sono verificate abbondanti nevicate. Ma questo inizio" +
-                        "2017 verrà ricordato soprattutto per un evento che non ha precedenti nella" +
-                        "storia. La laguna e i canali di Venezia si sono completamente congelati," +
-                        "l’acqua è diventata ghiaccio e si prevede che questo 'congelamento' duri" +
-                        "ancora per qualche giorno. Venezia è solita ad abbondanti nevicate durante" +
-                        "l’inverno, tuttavia le basse temperature, insieme a una particolare umidità," +
-                        "hanno creato un totale congelamento dei canali.",
-                "http://archive.is/p2jrB#selection-277.0-277.557",
-                "https://archive.is/p2jrB/c96d9e7b039dcf2017d07049639d559acc0cc5a2.jpg",
-                Level.REPORTER, set, adejctives, emotions, true);
-
+        return null;
     }
 
     @Override

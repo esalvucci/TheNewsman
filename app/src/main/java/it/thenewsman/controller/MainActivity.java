@@ -79,9 +79,9 @@ public class MainActivity extends AppCompatActivity
     // From --> https://www.androidhive.info/2015/09/android-material-design-working-with-tabs/
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new MainFragment(), getResources().getString(R.string.challenge));
-        adapter.addFragment(new RankFragment(), getResources().getString(R.string.rank));
-        adapter.addFragment(new UserDetailsFragment(), getResources().getString(R.string.user_details));
+        adapter.addFragment(MainFragment.newInstance(), getResources().getString(R.string.challenge));
+        adapter.addFragment(RankFragment.newInstance(), getResources().getString(R.string.rank));
+        adapter.addFragment(UserDetailsFragment.newInstance(), getResources().getString(R.string.user_details));
         viewPager.setAdapter(adapter);
     }
 

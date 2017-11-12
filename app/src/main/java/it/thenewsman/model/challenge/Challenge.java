@@ -1,17 +1,15 @@
 package it.thenewsman.model.challenge;
 
-import android.content.Context;
-import android.os.Parcelable;
-
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 import it.thenewsman.R;
 import it.thenewsman.model.news.News;
 
 /**
- *
+ * Models the concept of challenge which a user performs to gain points.
+ * It has a label, used as advice for the user, and it is represented by a graphic badge.
  */
 public enum Challenge implements Serializable {
     TITLE(R.string.title_challenge, R.mipmap.title_card),
@@ -20,25 +18,38 @@ public enum Challenge implements Serializable {
     CONTENT(R.string.content_challenge, R.mipmap.source_card),
     BONUS(R.string.bonus_challenge, R.mipmap.default_news_image);
 
-    private int formulation;
+    private int label;
     private int badge;
 
-    Challenge(int formulation, int badge) {
-        this.formulation = formulation;
+    Challenge(int label, int badge) {
+        this.label = label;
         this.badge = badge;
-//        this.news.addAll();
     }
 
-    public int getFormulation() {
-        return this.formulation;
+    /**
+     * @return the label of the challenge used as advice for the user.
+     */
+    public int getLabel() {
+        return this.label;
     }
+
+    /**
+     * @return the graphic badge of the challenge
+     */
     public int getBadge() {
         return this.badge;
     }
 
+    /**
+     * @return the news which the user has to answer in the challenge.
+     */
+    public Collection<News> getNews() {
+        return new HashSet<News>();
+    }
+
     public String toString() {
         return this.name() + ":" +
-                "\nFormulazione della domanda: " + this.formulation +
+                "\nFormulazione della domanda: " + this.label +
                 "\nBadge: " + this.badge;
     }
 
