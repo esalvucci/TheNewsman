@@ -1,5 +1,6 @@
 package it.thenewsman.model.news;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Set;
 
@@ -9,7 +10,7 @@ import it.thenewsman.model.Level;
  * Concrete implementation of {@link News} interface.
  * This class wraps the concept of a news and its infos.
  */
-public class NewsImpl implements News {
+public class NewsImpl implements News, Serializable {
 
     private String title;
     private String text;

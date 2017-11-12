@@ -25,7 +25,7 @@ public class UserDAO implements DAO<User>{
 
     @Override
     public User select() {
-        return null;
+        return new UserImpl("Enrico", "https://pbs.twimg.com/profile_images/464390622820847616/ao7pTGUB_400x400.jpeg", 7, null);
     }
 
     @Override

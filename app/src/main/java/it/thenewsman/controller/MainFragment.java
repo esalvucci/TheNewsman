@@ -16,15 +16,12 @@ import com.imangazaliev.circlemenu.CircleMenuButton;
 import java.util.Random;
 
 import it.thenewsman.R;
-import it.thenewsman.controller.question.AnswerActivity;
-import it.thenewsman.controller.question.BooleanAnswerActivity;
 import it.thenewsman.controller.question.MultipleAnswerActivity;
-import it.thenewsman.model.Question;
+import it.thenewsman.controller.question.image.BooleanImageAnswerActivity;
 import it.thenewsman.model.challenge.Challenge;
 import it.thenewsman.model.challenge.UserChallenge;
 import it.thenewsman.model.dao.DAOFactory;
 import it.thenewsman.model.user.User;
-import it.thenewsman.model.user.UserImpl;
 
 public class MainFragment extends Fragment {
 
@@ -44,7 +41,7 @@ public class MainFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        DAOFactory daoFactory = DAOFactory.getDaoFactory(DAOFactory.DAOType.SQLITE);
+        DAOFactory daoFactory = DAOFactory.getDaoFactory(DAOFactory.DAOType.MYSQLITE);
         this.user = daoFactory.getUserDAO().select();
     }
 
@@ -88,9 +85,14 @@ public class MainFragment extends Fragment {
                     intent = new Intent(getContext()
                             , MultipleAnswerActivity.class);
                 } else {
+
+                    intent = new Intent(getContext(), BooleanImageAnswerActivity.class);
+
+/*
                     intent = new Random().nextBoolean() ?
                             new Intent(getContext(), MultipleAnswerActivity.class) :
-                            new Intent(getContext(), BooleanAnswerActivity.class);
+                            new Intent(getContext(), MulitpleAnswerActivity.class);
+*/
                 }
 
                 intent.putExtra("UserChallengeIntent", new UserChallenge(user, challenge));

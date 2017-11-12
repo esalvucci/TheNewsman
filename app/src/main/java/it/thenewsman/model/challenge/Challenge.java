@@ -40,13 +40,6 @@ public enum Challenge implements Serializable {
         return this.badge;
     }
 
-    /**
-     * @return the news which the user has to answer in the challenge.
-     */
-    public Collection<News> getNews() {
-        return new HashSet<News>();
-    }
-
     public String toString() {
         return this.name() + ":" +
                 "\nFormulazione della domanda: " + this.label +

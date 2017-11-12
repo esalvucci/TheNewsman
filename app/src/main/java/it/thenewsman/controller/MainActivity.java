@@ -80,7 +80,8 @@ public class MainActivity extends AppCompatActivity
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(MainFragment.newInstance(), getResources().getString(R.string.challenge));
-        adapter.addFragment(RankFragment.newInstance(), getResources().getString(R.string.rank));
+//        adapter.addFragment(RankFragment.newInstance(), getResources().getString(R.string.rank));
+        adapter.addFragment(UserDetailsFragment.newInstance(), getResources().getString(R.string.user_details));
         adapter.addFragment(UserDetailsFragment.newInstance(), getResources().getString(R.string.user_details));
         viewPager.setAdapter(adapter);
     }
@@ -91,7 +92,8 @@ public class MainActivity extends AppCompatActivity
             tabLayout.getTabAt(0).setIcon(R.drawable.ic_stars_24dp);
             tabLayout.getTabAt(1).setIcon(R.drawable.ic_assessment_24dp);
             tabLayout.getTabAt(2).setIcon(R.drawable.ic_user_24dp);
-            tabLayout.getTabAt(2).setText(this.user.getLevel().getName());
+//            tabLayout.getTabAt(2).setText(this.user.getLevel().getName());
+        tabLayout.getTabAt(2).setText(Level.REPORTER.getName());
     }
 
     @Override

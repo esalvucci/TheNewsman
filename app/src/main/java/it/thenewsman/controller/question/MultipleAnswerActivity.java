@@ -17,7 +17,6 @@ import it.thenewsman.model.news.News;
 
 public class MultipleAnswerActivity extends AnswerActivity {
 
-    @Override
     public void setButtons(News news) {
         FlexboxLayout layout = (FlexboxLayout) findViewById(R.id.content_answer);
 
@@ -27,6 +26,16 @@ public class MultipleAnswerActivity extends AnswerActivity {
             trueButton.setText(s);
             layout.addView(trueButton);
         }
+
+    }
+
+    @Override
+    public void setAnswers() {
+
+    }
+
+    @Override
+    public void setContentLayout() {
 
     }
 }

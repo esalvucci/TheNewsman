@@ -9,7 +9,7 @@ import java.util.Random;
 
 public enum Question implements Serializable {
 
-    BOOLEAN("Ritengo l'informazione.."),
+    BOOLEAN("Seleziona l'informazione della notizia che ritieni più realistica"),
     CATEGORY("L'informazione è di.."),
     ADJECTIVES("Questo è.."),
     EMOTIONS("Questo provoca emozioni di..");

@@ -1,35 +1,22 @@
 package it.thenewsman.controller;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import com.imangazaliev.circlemenu.CircleMenu;
-import com.imangazaliev.circlemenu.CircleMenuButton;
-
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
 
 import it.thenewsman.R;
-import it.thenewsman.controller.question.BooleanAnswerActivity;
-import it.thenewsman.controller.question.MultipleAnswerActivity;
 import it.thenewsman.controller.user.UserAdapter;
-import it.thenewsman.model.Level;
-import it.thenewsman.model.challenge.Challenge;
-import it.thenewsman.model.challenge.UserChallenge;
 import it.thenewsman.model.dao.DAOFactory;
 import it.thenewsman.model.user.User;
-import it.thenewsman.model.user.UserImpl;
 
 public class RankFragment extends Fragment {
 

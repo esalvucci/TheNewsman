@@ -39,7 +39,8 @@ public class UserDetailsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        DAOFactory daoFactory = DAOFactory.getDaoFactory(DAOFactory.DAOType.SQLITE);
+        // Passare il DAO come intent?
+        DAOFactory daoFactory = DAOFactory.getDaoFactory(DAOFactory.DAOType.MYSQLITE);
         UserDAO userDAO = daoFactory.getUserDAO();
         this.user = userDAO.select();
 
