@@ -10,7 +10,6 @@ import it.thenewsman.model.challenge.Challenge;
 /*
  * Interface that models the concept of the User of the app.
  */
-
 public interface User extends Serializable {
 
     /**
