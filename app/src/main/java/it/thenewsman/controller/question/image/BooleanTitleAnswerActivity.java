@@ -43,17 +43,23 @@ public class BooleanTitleAnswerActivity extends AnswerActivity {
     public void setAnswers() {
 
         LinearLayout firstLayout = (LinearLayout) findViewById(R.id.first_layout);
+        firstLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         TextView firstTitle = new TextView(this);
         firstTitle.setTextSize(20);
 
         News firstNews = this.getUserChallenge().getFilteredNews();
         firstTitle.setText(firstNews.getTitle());
+        firstTitle.setTextColor(getResources().getColor(R.color.colorAccent));
+
 
         firstLayout.addView(firstTitle);
         firstLayout.setOnClickListener(new OnBooleanClickListener(firstNews));
 
         LinearLayout secondLayout = (LinearLayout) findViewById(R.id.second_layout);
+        secondLayout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+
         TextView secondTitle = new TextView(this);
+        secondTitle.setTextColor(getResources().getColor(R.color.colorAccent));
 
         News secondNews = this.getUserChallenge().getFilteredNews();
         secondTitle.setText(secondNews.getTitle());

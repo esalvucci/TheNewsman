@@ -20,7 +20,7 @@ import it.thenewsman.model.news.News;
 public class BooleanImageAnswerActivity extends AnswerActivity {
 
     private Question question = Question.BOOLEAN;
-    private final static String FORMULATION = "Seleziona l'immagine della notizia che ritieni" +
+    private final static String FORMULATION = "Seleziona l'immagine della notizia che ritieni " +
             "più realistica";
     // Da mettere in R.string
 
@@ -45,6 +45,8 @@ public class BooleanImageAnswerActivity extends AnswerActivity {
 
         LinearLayout firstLayout = (LinearLayout) findViewById(R.id.first_layout);
         ImageView firstImage = new ImageView(this);
+
+        firstImage.setElevation(5);
         News firstNews = this.getUserChallenge().getFilteredNews();
 
         Glide.with(this.getApplicationContext()).load(
@@ -58,6 +60,7 @@ public class BooleanImageAnswerActivity extends AnswerActivity {
 
         LinearLayout secondLayout = (LinearLayout) findViewById(R.id.second_layout);
         ImageView secondImage = new ImageView(this);
+        secondImage.setElevation(5);
 
         News secondNews = this.getUserChallenge().getFilteredNews();
         while (firstNews.isTrue() && secondNews.isTrue()) {
