@@ -42,11 +42,11 @@ public class UserChallenge implements Serializable {
                 null,
                 false
                 ));
-        this.news.add(new NewsImpl("La foto della famiglia terrorizzata in posa con il dittatore nordcoreano Kim Jong Un ",
-                "una foto ritrae un sorridente Kim Jong Un, dittatore della Corea del Nord, insieme a una famiglia vistosamente angosciata. ",
-                "http://www.huffingtonpost.co.uk/2012/08/20/kim-jong-un-photo-north-korea-family_n_1810367.html",
-                "Huffington Post",
-                "https://2.bp.blogspot.com/-8BfTNsBrZzI/Vty-UuI9GtI/AAAAAAAAf0I/oMPRoqyumYc/s1600/kim-jong-un-terrified-family.jpg",
+        this.news.add(new NewsImpl("L'unicorno esiste davvero: vive sui monti Sibillini ed è un capriolo",
+                "COME nelle favole. Tra i boschi fiabeschi dei Monti Sibillini vive una creatura con un solo corno. Non è un cavallo bianco dotato di poteri magici, ma un giovane capriolo. Che salta e gioca con i suoi simili sui prati della valle del Fiastrone, nelle Marche (zona devastata dal terremoto dello scorso anno). È stato ripreso da una videotrappola - una telecamera nascosta nella vegetazione - mentre pascola di giorno, e di notte mentre è in compagnia di altri animali",
+                "http://www.repubblica.it/ambiente/2017/07/11/news/l_unicorno_esiste_davvero_ma_e_un_capriolo_e_vive_nelle_marche-170539055/?ref=fbpr&refresh_ce",
+                "La Repubblica",
+                "https://scienzamagia.eu/wp-content/uploads/2017/07/cerbiatto-unicorno.jpg",
                 Level.REPORTER,
                 null,
                 null,

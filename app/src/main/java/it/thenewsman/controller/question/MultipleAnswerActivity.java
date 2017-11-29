@@ -36,6 +36,6 @@ public class MultipleAnswerActivity extends AnswerActivity {
 
     @Override
     public void setContentLayout() {
-
+        setContentView(R.layout.activity_boolean_question);
     }
 }

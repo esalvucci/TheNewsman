@@ -1,4 +1,4 @@
-package it.thenewsman.controller.challengeTypeCard;
+package it.thenewsman.controller.challenge;
 
 import android.content.Context;
 import android.content.res.Resources;

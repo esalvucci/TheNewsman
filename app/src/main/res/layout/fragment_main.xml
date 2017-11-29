@@ -8,6 +8,8 @@
     tools:context=".controller.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <include layout="@layout/breaking_news_item" />
+
     <com.imangazaliev.circlemenu.CircleMenu
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

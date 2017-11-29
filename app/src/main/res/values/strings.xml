@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">The Newsman</string>
     <string name="about">About</string>
-    <string name="licence">Licence</string>
+    <string name="code">Codice</string>
+    <string name="licence">Licenza</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -20,5 +21,14 @@
     <string name="challenge">sfida</string>
     <string name="rank">classifica</string>
     <string name="user_details">Utente</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tineye">Tineye</string>
+    <string name="image_tools">Strumenti per la verifica delle immagini</string>
+    <string name="google_reverse_image_tool">Google Reverse Image Search</string>
+    <string name="debunking_tools">Siti di debunking</string>
+    <string name="bufale_net">bufale.net</string>
+    <string name="butac_it">butac.it</string>
 
 </resources>

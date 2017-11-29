@@ -14,8 +14,9 @@
         android:layout_weight="1"
         android:id="@+id/first_layout"
         android:orientation="horizontal"
-        android:layout_marginEnd="@dimen/margin_normal"
-        android:layout_marginStart="@dimen/margin_normal"
+        android:padding="@dimen/margin_small"
+        android:layout_margin="@dimen/margin_normal"
+        android:elevation="5dp"
         />
 
     <TextView
@@ -28,13 +29,14 @@
         android:id="@+id/question_formulation"/>
 
     <LinearLayout
+        android:padding="@dimen/margin_small"
         android:gravity="center"
+        android:elevation="5dp"
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:layout_marginEnd="@dimen/margin_normal"
-        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_margin="@dimen/margin_normal"
         android:id="@+id/second_layout" />
 
 </LinearLayout>

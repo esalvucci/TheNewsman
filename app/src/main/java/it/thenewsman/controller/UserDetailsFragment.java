@@ -10,14 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
 import it.thenewsman.R;
-import it.thenewsman.controller.challengeTypeCard.ChallengeTypeAdapter;
-import it.thenewsman.controller.challengeTypeCard.GridSpacingItemDecoration;
+import it.thenewsman.controller.challenge.ChallengeTypeAdapter;
+import it.thenewsman.controller.challenge.GridSpacingItemDecoration;
 import it.thenewsman.model.challenge.Challenge;
 import it.thenewsman.model.dao.DAOFactory;
 import it.thenewsman.model.user.User;

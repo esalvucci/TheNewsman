@@ -1,5 +1,6 @@
 package it.thenewsman.controller;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -100,7 +101,35 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         // ToDo Add intent/activity link for all items in the drawer
+            Intent i = null;
+            switch (item.getItemId()) {
+// https://reverse.photos/
+                case R.id.nav_bufale_net:
+                    i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://bufale.net"));
+                    break;
+                case R.id.nav_butac_it:
+                    i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://butac.it"));
+                    break;
 
+                case R.id.nav_google:
+                    i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://reverse.photos"));
+                    break;
+
+                case R.id.nav_tineye:
+                    i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://tineye.com"));
+                    break;
+
+                case R.id.code:
+                    i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/esalvucci/TheNewsman"));
+                    break;
+                case R.id.licence:
+                    i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.gnu.org/licenses/gpl-3.0.en.html"));
+                    break;
+            }
+            startActivity(i);
+
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
