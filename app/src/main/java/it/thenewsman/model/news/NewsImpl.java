@@ -1,26 +1,53 @@
 package it.thenewsman.model.news;
 
+import android.support.annotation.NonNull;
+
+import org.greenrobot.greendao.annotation.Convert;
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.JoinEntity;
+import org.greenrobot.greendao.annotation.NotNull;
+import org.greenrobot.greendao.annotation.ToMany;
+
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 import it.thenewsman.model.Level;
+import it.thenewsman.model.dao.greendao.converter.GreenConverter;
+import it.thenewsman.model.dao.greendao.converter.LevelConverter;
+import org.greenrobot.greendao.annotation.Generated;
 
 /**
  * Concrete implementation of {@link News} interface.
  * This class wraps the concept of a news and its infos.
  */
+@Entity
 public class NewsImpl implements News, Serializable {
 
-    private String title;
+    private static final long serialVersionUID = 4L;
+
+    @Id(autoincrement = true)
+    private long id;
+    @NonNull
+    private String title = "";
+    @NotNull
     private String text;
-    private String url;
+    @NonNull
+    private String url = "";
     private String source;
+    @NotNull
     private String image;
+    @NotNull
+    @Convert(converter = LevelConverter.class, columnType = Integer.class)
     private Level difficulty;
-    private Set<CategoryNews> categories;
-    private Set<String> adjectives;
-    private Set<String> emotions;
+    @Convert(converter = GreenConverter.class, columnType = String.class)
+    private List<String> categories;
+    @Convert(converter = GreenConverter.class, columnType = String.class)
+    private List<String> adjectives;
+    @Convert(converter = GreenConverter.class, columnType = String.class)
+    private List<String> emotions;
     private boolean isTrue;
 
     /**
@@ -36,8 +63,8 @@ public class NewsImpl implements News, Serializable {
      * @param emotions, a set of emotions aroused by the news (represented as strings).
      * @param isTrue, whether the news is to be considered true or false.
      */
-    public NewsImpl(String title, String text, String url, String source, String image, Level difficulty,
-                    Set<CategoryNews> categories, Set<String> adjectives, Set<String> emotions,
+    public NewsImpl(@NonNull String title, String text, @NonNull String url, String source, String image, Level difficulty,
+                    List<String> categories, List<String> adjectives, List<String> emotions,
                     boolean isTrue) {
         this.title = title;
         this.text = text;
@@ -51,10 +78,32 @@ public class NewsImpl implements News, Serializable {
         this.emotions = emotions;
     }
 
+    @Generated(hash = 1408932155)
+    public NewsImpl(long id, @NonNull String title, @NonNull String text, @NonNull String url, String source,
+            @NonNull String image, @NonNull Level difficulty, List<String> categories, List<String> adjectives,
+            List<String> emotions, boolean isTrue) {
+        this.id = id;
+        this.title = title;
+        this.text = text;
+        this.url = url;
+        this.source = source;
+        this.image = image;
+        this.difficulty = difficulty;
+        this.categories = categories;
+        this.adjectives = adjectives;
+        this.emotions = emotions;
+        this.isTrue = isTrue;
+    }
+
+    @Generated(hash = 1183276940)
+    public NewsImpl() {
+    }
+
     /**
      * {@inheritDoc}
      */
     @Override
+    @NonNull
     public String getTitle() {
         return this.title;
     }
@@ -71,6 +120,7 @@ public class NewsImpl implements News, Serializable {
      * {@inheritDoc}
      */
     @Override
+    @NonNull
     public String getUrl() {
         return this.url;
     }
@@ -103,7 +153,7 @@ public class NewsImpl implements News, Serializable {
      * {@inheritDoc}
      */
     @Override
-    public Collection<CategoryNews> getCategories() {
+    public List<String> getCategories() {
         return this.categories;
     }
 
@@ -111,7 +161,7 @@ public class NewsImpl implements News, Serializable {
      * {@inheritDoc}
      */
     @Override
-    public Collection<String> getAdjectives() {
+    public List<String> getAdjectives() {
         return this.adjectives;
     }
 
@@ -119,7 +169,7 @@ public class NewsImpl implements News, Serializable {
      * {@inheritDoc}
      */
     @Override
-    public Collection<String> getEmotions() {
+    public List<String> getEmotions() {
         return this.emotions;
     }
 
@@ -138,18 +188,16 @@ public class NewsImpl implements News, Serializable {
 
         NewsImpl news = (NewsImpl) o;
 
+        if (id != news.id) return false;
         if (!title.equals(news.title)) return false;
-        if (url != null ? !url.equals(news.url) : news.url != null) return false;
-        if (source != null ? !source.equals(news.source) : news.source != null) return false;
-        return image != null ? image.equals(news.image) : news.image == null;
+        return url.equals(news.url);
     }
 
     @Override
     public int hashCode() {
-        int result = title.hashCode();
-        result = 31 * result + (url != null ? url.hashCode() : 0);
-        result = 31 * result + (source != null ? source.hashCode() : 0);
-        result = 31 * result + (image != null ? image.hashCode() : 0);
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + title.hashCode();
+        result = 31 * result + url.hashCode();
         return result;
     }
 
@@ -167,5 +215,57 @@ public class NewsImpl implements News, Serializable {
                 ", emotions=" + emotions +
                 ", isTrue=" + isTrue +
                 '}';
+    }
+
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public void setDifficulty(Level difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public void setCategories(List<String> categories) {
+        this.categories = categories;
+    }
+
+    public void setAdjectives(List<String> adjectives) {
+        this.adjectives = adjectives;
+    }
+
+    public void setEmotions(List<String> emotions) {
+        this.emotions = emotions;
+    }
+
+    public boolean getIsTrue() {
+        return this.isTrue;
+    }
+
+    public void setIsTrue(boolean isTrue) {
+        this.isTrue = isTrue;
     }
 }

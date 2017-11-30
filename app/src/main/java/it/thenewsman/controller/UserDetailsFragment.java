@@ -17,9 +17,7 @@ import it.thenewsman.R;
 import it.thenewsman.controller.challenge.ChallengeTypeAdapter;
 import it.thenewsman.controller.challenge.GridSpacingItemDecoration;
 import it.thenewsman.model.challenge.Challenge;
-import it.thenewsman.model.dao.DAOFactory;
 import it.thenewsman.model.user.User;
-import it.thenewsman.model.user.UserDAO;
 
 public class UserDetailsFragment extends Fragment {
 

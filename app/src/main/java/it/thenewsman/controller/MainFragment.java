@@ -13,14 +13,11 @@ import android.widget.ListView;
 import com.imangazaliev.circlemenu.CircleMenu;
 import com.imangazaliev.circlemenu.CircleMenuButton;
 
-import java.util.Random;
-
 import it.thenewsman.R;
 import it.thenewsman.controller.question.MultipleAnswerActivity;
 import it.thenewsman.controller.question.image.BooleanImageAnswerActivity;
 import it.thenewsman.model.challenge.Challenge;
 import it.thenewsman.model.challenge.UserChallenge;
-import it.thenewsman.model.dao.DAOFactory;
 import it.thenewsman.model.user.User;
 
 public class MainFragment extends Fragment {
@@ -61,19 +58,19 @@ public class MainFragment extends Fragment {
 
                 switch (menuButton.getId()) {
                     case R.id.title :
-                        challenge = Challenge.TITLE;
+                        challenge.getName().equals("title");
                         break;
                     case R.id.photo :
-                        challenge = Challenge.PHOTO;
+                        challenge.getName().equals("photo");
                         break;
                     case R.id.url :
-                        challenge = Challenge.URL;
+                        challenge.getName().equals("url");
                         break;
                     case R.id.content :
-                        challenge = Challenge.CONTENT;
+                        challenge.getName().equals("content");
                         break;
                     case R.id.bonus :
-                        challenge = Challenge.BONUS;
+                        challenge.getName().equals("bonus");
                         break;
 
                     default:
@@ -81,7 +78,7 @@ public class MainFragment extends Fragment {
                 }
 
                 Intent intent;
-                if (challenge.equals(Challenge.URL)) {
+                if (challenge.getName().equals("bonus")) {
                     intent = new Intent(getContext()
                             , MultipleAnswerActivity.class);
                 } else {

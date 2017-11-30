@@ -48,7 +48,7 @@ public interface News {
     /**
      * @return a set of {@link CategoryNews } which the news belongs to.
      */
-    Collection<CategoryNews> getCategories();
+    Collection<String> getCategories();
 
     /**
      * @return a set of adjectives, represented as strings, related to the news.

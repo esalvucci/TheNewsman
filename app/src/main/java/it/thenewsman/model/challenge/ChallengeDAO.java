@@ -2,8 +2,6 @@ package it.thenewsman.model.challenge;
 
 import java.util.Collection;
 
-import it.thenewsman.model.dao.DAO;
-
 /**
  * Created by enrico on 11/9/17.
  */

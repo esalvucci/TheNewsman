@@ -5,31 +5,45 @@ import android.support.annotation.NonNull;
 import org.greenrobot.greendao.annotation.Convert;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.Index;
-import org.greenrobot.greendao.annotation.ToOne;
+import org.greenrobot.greendao.annotation.NotNull;
+import org.greenrobot.greendao.annotation.ToMany;
 
-import java.util.Collection;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.LinkedList;
+import java.util.List;
 
 import it.thenewsman.model.Level;
 import it.thenewsman.model.challenge.Challenge;
+import it.thenewsman.model.dao.greendao.converter.LevelConverter;
+import org.greenrobot.greendao.annotation.Generated;
+import org.greenrobot.greendao.DaoException;
+import it.thenewsman.model.challenge.ChallengeDao;
 
 /**
  * Concrete implementation of User concept.
  */
+@Entity
 public class UserImpl implements User{
 
+    @Id(autoincrement = true)
+    private long id;
+    @NonNull
     private String name;
     private String avatar;
     private int points = 0;
     private Date birthday;
     private boolean acknowledgment = false;
+    @NotNull
+    @Convert(converter = LevelConverter.class, columnType = Integer.class)
     private Level level;
-    private Set<Challenge> challenges = new HashSet<>();
+    @ToMany(referencedJoinProperty = "id")
+    private List<Challenge> challenges = new LinkedList<>();
+    /** Used to resolve relations */
+    @Generated(hash = 2040040024)
+    private transient DaoSession daoSession;
+    /** Used for active entity operations. */
+    @Generated(hash = 221744990)
+    private transient UserImplDao myDao;
 
     /**
      *
@@ -44,6 +58,22 @@ public class UserImpl implements User{
         this.avatar = avatar;
         this.points = points;
         this.birthday = birthday;
+    }
+
+    @Generated(hash = 1756456244)
+    public UserImpl(long id, @NonNull String name, String avatar, int points, Date birthday,
+            boolean acknowledgment, @NonNull Level level) {
+        this.id = id;
+        this.name = name;
+        this.avatar = avatar;
+        this.points = points;
+        this.birthday = birthday;
+        this.acknowledgment = acknowledgment;
+        this.level = level;
+    }
+
+    @Generated(hash = 751158277)
+    public UserImpl() {
     }
 
     /**
@@ -125,16 +155,7 @@ public class UserImpl implements User{
     public Level getLevel() {
         return this.level;
     }
-
-    /**
-     *
-     * {@inheritDoc}
-     */
-    @Override
-    public Collection<Challenge> getChallenges() {
-        return this.challenges;
-    }
-
+    
     /**
      * {@inheritDoc}
      */
@@ -170,5 +191,108 @@ public class UserImpl implements User{
                 ", challenges=" + challenges +
                 ", acknowledgment=" + acknowledgment +
                 '}';
+    }
+
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    public Date getBirthday() {
+        return this.birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public boolean getAcknowledgment() {
+        return this.acknowledgment;
+    }
+
+    public void setChallenges(List<Challenge> challenges) {
+        this.challenges = challenges;
+    }
+
+    /**
+     * To-many relationship, resolved on first access (and after reset).
+     * Changes to to-many relations are not persisted, make changes to the target entity.
+     */
+    @Generated(hash = 1926681287)
+    public List<Challenge> getChallenges() {
+        if (challenges == null) {
+            final DaoSession daoSession = this.daoSession;
+            if (daoSession == null) {
+                throw new DaoException("Entity is detached from DAO context");
+            }
+            ChallengeDao targetDao = daoSession.getChallengeDao();
+            List<Challenge> challengesNew = targetDao._queryUserImpl_Challenges(id);
+            synchronized (this) {
+                if (challenges == null) {
+                    challenges = challengesNew;
+                }
+            }
+        }
+        return challenges;
+    }
+
+    /** Resets a to-many relationship, making the next get call to query for a fresh result. */
+    @Generated(hash = 892801457)
+    public synchronized void resetChallenges() {
+        challenges = null;
+    }
+
+    /**
+     * Convenient call for {@link org.greenrobot.greendao.AbstractDao#delete(Object)}.
+     * Entity must attached to an entity context.
+     */
+    @Generated(hash = 128553479)
+    public void delete() {
+        if (myDao == null) {
+            throw new DaoException("Entity is detached from DAO context");
+        }
+        myDao.delete(this);
+    }
+
+    /**
+     * Convenient call for {@link org.greenrobot.greendao.AbstractDao#refresh(Object)}.
+     * Entity must attached to an entity context.
+     */
+    @Generated(hash = 1942392019)
+    public void refresh() {
+        if (myDao == null) {
+            throw new DaoException("Entity is detached from DAO context");
+        }
+        myDao.refresh(this);
+    }
+
+    /**
+     * Convenient call for {@link org.greenrobot.greendao.AbstractDao#update(Object)}.
+     * Entity must attached to an entity context.
+     */
+    @Generated(hash = 713229351)
+    public void update() {
+        if (myDao == null) {
+            throw new DaoException("Entity is detached from DAO context");
+        }
+        myDao.update(this);
+    }
+
+    /** called by internal mechanisms, do not call yourself. */
+    @Generated(hash = 979502837)
+    public void __setDaoSession(DaoSession daoSession) {
+        this.daoSession = daoSession;
+        myDao = daoSession != null ? daoSession.getUserImplDao() : null;
     }
 }

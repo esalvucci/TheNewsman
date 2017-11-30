@@ -1,5 +1,10 @@
 package it.thenewsman.model.challenge;
 
+import android.support.annotation.NonNull;
+
+import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.ToMany;
+
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
@@ -21,48 +26,36 @@ import it.thenewsman.model.user.User;
 
 public class UserChallenge implements Serializable {
 
+    private static final long serialVersionUID = 4L;
+
+    @Id(autoincrement = true)
+    private long id;
+    @NonNull
     private User user;
+    @NonNull
     private Challenge challenge;
     private int points;
     private boolean isCompleted;
-    private List<News> news = new LinkedList<>();
+    @ToMany
+//    private List<News> news = new LinkedList<>();
+    private List<NewsImpl> news = new LinkedList<>();
     private final static int NEWS_SIZE = 10;
 
-    public UserChallenge(User user, Challenge challenge) {
+    public UserChallenge(@NonNull User user, @NonNull Challenge challenge) {
         this.user = user;
         this.challenge = challenge;
-        this.news.add(new NewsImpl("Le foto sensazionali di Venezia ghiacciata!",
-                "Nelle ultime settimana l’Italia è stata invasa da freddo e neve, persino al sud si sono verificate abbondanti nevicate. Ma questo inizio 2017 verrà ricordato soprattutto per un evento che non ha precedenti nella storia. La laguna e i canali di Venezia si sono completamente congelati, l’acqua è diventata ghiaccio e si prevede che questo “congelamento” duri ancora per qualche giorno. Venezia è solita ad abbondanti nevicate durante l’inverno, tuttavia le basse temperature, insieme a una particolare umidità, hanno creato un totale congelamento dei canali.",
-                "http://archive.is/p2jrB#selection-277.0-277.557",
-                "Il Giornale Italiano",
-                "https://archive.is/p2jrB/c96d9e7b039dcf2017d07049639d559acc0cc5a2.jpg",
-                Level.REPORTER,
-                null,
-                null,
-                null,
-                false
-                ));
-        this.news.add(new NewsImpl("L'unicorno esiste davvero: vive sui monti Sibillini ed è un capriolo",
-                "COME nelle favole. Tra i boschi fiabeschi dei Monti Sibillini vive una creatura con un solo corno. Non è un cavallo bianco dotato di poteri magici, ma un giovane capriolo. Che salta e gioca con i suoi simili sui prati della valle del Fiastrone, nelle Marche (zona devastata dal terremoto dello scorso anno). È stato ripreso da una videotrappola - una telecamera nascosta nella vegetazione - mentre pascola di giorno, e di notte mentre è in compagnia di altri animali",
-                "http://www.repubblica.it/ambiente/2017/07/11/news/l_unicorno_esiste_davvero_ma_e_un_capriolo_e_vive_nelle_marche-170539055/?ref=fbpr&refresh_ce",
-                "La Repubblica",
-                "https://scienzamagia.eu/wp-content/uploads/2017/07/cerbiatto-unicorno.jpg",
-                Level.REPORTER,
-                null,
-                null,
-                null,
-                true
-                ));
     }
 
     public void addPoints(int points) {
         this.points = this.points + points;
     }
 
+    @NonNull
     public User getUser() {
         return this.user;
     }
 
+    @NonNull
     public Challenge getChallenge() {
         return this.challenge;
     }

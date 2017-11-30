@@ -2,9 +2,6 @@ package it.thenewsman.model.news;
 
 import java.util.Collection;
 
-import it.thenewsman.model.dao.DAO;
-import it.thenewsman.model.news.News;
-
 /**
  * Created by enrico on 11/9/17.
  */

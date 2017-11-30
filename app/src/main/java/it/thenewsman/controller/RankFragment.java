@@ -15,7 +15,6 @@ import java.util.List;
 
 import it.thenewsman.R;
 import it.thenewsman.controller.user.UserAdapter;
-import it.thenewsman.model.dao.DAOFactory;
 import it.thenewsman.model.user.User;
 
 public class RankFragment extends Fragment {
